@@ -1,14 +1,8 @@
-#COMMAND-LINE INTERFACE for D-LINK SHARECENTER DNS-320
+#COMMAND-LINE INTERFACE for D-LINK SHARECENTER DNS-320L
 
-*Only for DLINK Firmware 2.03, help me to add support of new [firmware 2.05](https://github.com/stefanocudini/dns-320-command-line/issues/3)*
-
-![Image](https://raw2.github.com/stefanocudini/dns-320-command-line/master/dns-320-pulse.png)
-
-Copyleft Stefano Cudini 2012
-
-stefano.cudini@gmail.com
-
-[labs.easyblog.it](http://labs.easyblog.it/dns-320-command-line/)
+*Fork from https://github.com/stefanocudini/dns-320-command-line and adapt to DNS-320L firmware 1.03.*
+*Becareful, this script does not support DNS-320 Firmware 2.03.*
+*To use, set USER and PASSWORD on the top of the script or in ini file.*
 
 **Suggestions:**
 
