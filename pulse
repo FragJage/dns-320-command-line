@@ -170,8 +170,8 @@ $params['statGetTemperature'] = array('cmd'=>'cgi_get_temperature');
 $urls['usbUmount'] = URLCGI.'system_mgr.cgi?cmd=cgi_umount_flash&_='.uniqid();
 //is a GET request
 
-$urls['disk'] = URLCGI.'dsk_mgr.cgi';
-$params['diskStatus'] = array('cmd'=>'Status_HDInfo');
+$urls['disk'] = URLCGI.'hd_config.cgi';
+$params['diskStatus'] = array('cmd'=>'cgi_Status_Volume_Info');
 
 $urls['sys'] = URLCGI.'system_mgr.cgi';
 $params['sysRestart'] = array('cmd'=>'cgi_restart');
@@ -650,13 +650,12 @@ foreach($opts as $opt=>$optval):
 		case 'd':
 		case 'disks':
 			$d = diskGetInfo();
-			echo "DISKS:\t".count($d['Volume'])."\n";
-			foreach($d['Volume'] as $disk)
+			echo "DISKS:\t".count($d['item'])."\n";
+			foreach($d['item'] as $disk)
 			{
-				$disk['free_size'] = $disk['total_size'] - $disk['used_size'];
-				echo " ".$disk['shared_name'].': '.bytesConvert($disk['total_size']*1000)."\n".
+				echo " DISK".$disk['volume'].': '.bytesConvert($disk['total_size']*1000)."\n".
  					 "  Free: ".bytesConvert($disk['free_size']*1000)."\n".
-					 "  Used: ".$disk['used_rate']."\n";
+					 "  Used: ".$disk['used_rate']."%\n";
 			}
 		break;
 
