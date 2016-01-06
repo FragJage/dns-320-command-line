@@ -149,7 +149,7 @@ $urls['login'] = URLCGI.'login_mgr.cgi';
 $params['loginSet'] = array(
 	'cmd'=>'login',
 	'username'=>USER,
-	'pwd'=>PASS,
+	'pwd'=>base64_encode(PASS),
 	'port'=>'',
 	'f_type'=>1,
 	'f_username'=>'',
@@ -722,6 +722,8 @@ foreach($opts as $opt=>$optval):
 	echo "\n";
 	
 endforeach;
+
+logout();
 
 $OUT = ob_get_clean();
 
