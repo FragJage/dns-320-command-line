@@ -164,6 +164,8 @@ $params['loginLogout'] = array(
 
 $urls['stat'] = URLCGI.'status_mgr.cgi';
 $params['statGetStatus'] = array('cmd'=>'cgi_get_status');
+$params['statGetTemperature'] = array('cmd'=>'cgi_get_temperature');
+
 //about: ups, temperature, usb
 $urls['usbUmount'] = URLCGI.'system_mgr.cgi?cmd=cgi_umount_flash&_='.uniqid();
 //is a GET request
@@ -921,7 +923,7 @@ function sysGetTemp()
 {
 	global $urls;
 	global $params;	
-	$sys = xml2array( http_post_request($urls['stat'],$params['statGetStatus']) );
+	$sys = xml2array( http_post_request($urls['stat'],$params['statGetTemperature']) );
 	$t = next( explode(':',$sys['temperature']) );
 	return $t;
 }
